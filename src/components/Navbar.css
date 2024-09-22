@@ -1,0 +1,241 @@
+/* General Nav Styling */
+nav {
+  align-items: center;
+  background: linear-gradient(to right, #000000, #1e1e1e, #000000);
+  display: flex;
+  justify-content: space-between;
+  min-height: 100px;
+  padding: 0 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Branding */
+nav .nav-brand {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+
+/* Toolbox Styling */
+.toolbox {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.toolbox label {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: block;
+  text-align: center;
+}
+
+.toolbox > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.toolbox button {
+  background-color: #000000;
+  border-radius: 5px;
+  border: none;
+  color: #f1f1f1;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+  margin: 0 20px;
+  outline: none;
+  padding: 13px 10px;
+  transition: 0.5s ease;
+  border: 2px solid rgb(82, 48, 183);
+}
+
+.toolbox button:hover {
+  background-color: rgba(109, 60, 255, 0.082);
+  box-shadow: 0 0px 20px 1px rgb(72, 33, 150), 0 0px 20px 10px rgba(0, 0, 0, 0.19);
+}
+
+.toolbox select,
+input[type='range'] {
+  cursor: pointer;
+  margin: 0 20px;
+}
+
+.toolbox input,
+select,
+button {
+  min-width: 130px;
+}
+
+.toolbox select {
+  background: rgb(35, 35, 35);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+  padding: 5px 5px;
+}
+
+@media (max-width: 992px) {
+  nav {
+    flex-direction: column;
+  }
+
+  .toolbox {
+    display: block;
+    text-align: center;
+  }
+
+  .toolbox > div {
+    margin: 10px 0;
+  }
+
+  .speed {
+    display: none;
+  }
+}
+
+.group {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-right: 1rem;
+}
+
+.group label {
+font-size: 1rem;
+color: #ddd;
+margin-bottom: 0.5rem;
+}
+
+input[type="range"] {
+-webkit-appearance: none;
+width: 150px; /* Adjust width as needed */
+height: 8px;
+background: #101010; /* Dark background for range input */
+border-radius: 5px;
+outline: none;
+margin: 0;
+cursor: pointer;
+
+/* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); Dark shadow for contrast */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 10px;
+  background: #101010; /* Highlight color for the thumb */
+  border: 2px solid #5b2ec5;
+  border-radius: 20%;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+/* Apply the hover state to the thumb */
+input[type="range"]:hover::-webkit-slider-thumb {
+  height: 15px;
+  box-shadow: 0 0px 20px 1px rgb(118, 49, 255), 0 0px 20px 10px rgba(0, 0, 0, 0.19);
+  border-radius: 50%;
+  transition: 0.4s ease;
+}
+
+
+input[type="range"]::-moz-range-thumb {
+width: 20px;
+height: 20px;
+background: #4bc52e;
+border-radius: 50%;
+cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+width: 20px;
+height: 20px;
+background: #4bc52e;
+border-radius: 50%;
+cursor: pointer;
+}
+
+/* Responsive Styles */
+
+/* Tablet and below (768px and under) */
+@media (max-width: 768px) {
+  nav {
+      flex-direction: column;
+      padding: 10px;
+  }
+
+  .nav-brand {
+      font-size: 2em; /* Decrease font size */
+  }
+
+  .toolbox {
+      flex-direction: column;
+      width: 100%; /* Stack toolbox items */
+      margin-top: 10px;
+  }
+
+  .toolbox > div {
+      flex-direction: column;
+      margin: 10px 0;
+  }
+
+  .toolbox button,
+  .toolbox select {
+      margin: 10px 0;
+      width: 100%; /* Full width buttons */
+  }
+
+  .length {
+    display: none;
+  }
+}
+
+/* Small Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  nav {
+      flex-direction: column;
+      padding: 5px;
+      min-height: 80px;
+  }
+
+  .nav-brand {
+      font-size: 1.5em; /* Further decrease font size */
+  }
+
+  .toolbox {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .toolbox button,
+  .toolbox select,
+  input[type="range"] {
+      width: 100%; /* Full width controls */
+      margin: 5px 0; /* Space between elements */
+  }
+
+  .toolbox label {
+      font-size: 0.9em; /* Reduce label size */
+  }
+
+  .group {
+      margin-right: 0;
+  }
+
+  input[type="range"] {
+      
+      width: 100%; /* Full width range slider */
+      margin: 5px 0;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+      width: 10px;
+      height: 10px;
+  }
+}

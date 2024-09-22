@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.algoName {
+    margin-right: 20px;
+}
+
+.algoInfo {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(to right, #000000, #1e1e1e, #000000); /* Gradient background */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    color: white;
+}
+
+.info {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timeComplexity, .spaceComplexity {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.complexity {
+    width: 50%;
+}
+
+.tc, .sc {
+    width: 30%;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    border: 2px solid;
+    margin-bottom: 15px;
+    transition: 0.5s ease;
+}
+
+.tc {
+    border-color: #5b2ec5;
+    background-color: rgba(79, 41, 169, 0.079);
+}
+
+.sc {
+    border-color: #d1bdff;
+    background-color: rgba(199, 175, 255, 0.079);
+}
+
+.tc.best {
+    animation: shadowAnimTime 3.5s infinite ease-in-out;
+    animation-delay: 0s; /* Best starts immediately */
+}
+.sc.best {
+    animation: shadowAnimSpace 3.5s infinite ease-in-out;
+    animation-delay: 0s; /* Best starts immediately */
+}
+.tc.avg {
+    animation: shadowAnimTime 3.5s infinite ease-in-out;
+    animation-delay: 0.5s; /* Avg starts 2 seconds after Best */
+}
+.sc.avg {
+    animation: shadowAnimSpace 3.5s infinite ease-in-out;
+    animation-delay: 0.5s; /* Avg starts 2 seconds after Best */
+}
+.tc.worst {
+    animation: shadowAnimTime 3.5s infinite ease-in-out;
+    animation-delay: 1s; /* Worst starts 4 seconds after Best */
+}
+.sc.worst {
+    animation: shadowAnimSpace 3.5s infinite ease-in-out;
+    animation-delay: 1s; /* Worst starts 4 seconds after Best */
+}
+
+/* Define keyframes for the shadow animation */
+@keyframes shadowAnimTime {
+    0%, 100% {
+        box-shadow: none;
+    }
+    25% {
+        box-shadow: 0 0px 15px 1px rgba(118, 49, 255, 0.5); /* Best */
+    }
+    50% {
+        box-shadow: 0 0px 15px 1px rgba(118, 49, 255, 0.5); /* Avg */
+    }
+    75% {
+        box-shadow: 0 0px 15px 1px rgba(118, 49, 255, 0.5); /* Worst */
+    }
+}
+@keyframes shadowAnimSpace {
+    0%, 100% {
+        box-shadow: none;
+    }
+    25% {
+        box-shadow: 0 0px 15px 1px rgba(212, 190, 255, 0.479)
+    }
+    50% {
+        box-shadow: 0 0px 15px 1px rgba(212, 190, 255, 0.479)
+    }
+    75% {
+        box-shadow: 0 0px 15px 1px rgba(212, 190, 255, 0.479); /* Worst */
+    }
+}
+
+
+
+.sc:hover, .tc:hover {
+    width: 33%;
+    box-shadow: 0 0px 20px 1px rgba(212, 190, 255, 0.479), 0 0px 20px 5px rgba(0, 0, 0, 0.19);
+    transition: 0.5s ease;
+}
+
+.timeC, .spaceC {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    border: 2px solid;
+    display: inline-block; /* This is crucial for width to apply on span elements */
+    animation: morphShape 2s infinite ease-in-out; /* Add the animation */
+}
+
+.timeC {
+    border-color: #6647af;
+    background-color: rgba(79, 41, 169, 0.425);
+}
+
+.spaceC {
+    border-color: #d1bdff;
+    background-color: rgba(199, 175, 255, 0.079);
+}
+
+/* Keyframes for the animation */
+@keyframes morphShape {
+    0% {
+        border-radius: 30px; /* Starting as a square */
+        width: 10px;
+        transform: rotate(0deg); /* Start at 0 degrees */
+        transition: 0.2s ease;
+    }
+    50% {
+        border-radius: 50%; /* Transformed into a circle */
+        /* transform: rotate(180deg); Halfway, rotated 180 degrees */
+        width: 20px;
+        transition: 0.2s ease;
+    }
+    100% {
+        border-radius: 30px; /* Back to square */
+        width: 10px;
+        transform: rotate(360deg); /* Full rotation completed */
+        transition: 0.2s ease;
+    }
+}
+
+
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    .algoInfo {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .info {
+        width: 100%;
+        margin-bottom: 15px;
+        justify-content: space-between;
+    }
+
+    .tc, .sc {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .algoInfo {
+        padding: 10px;
+    }
+
+    .info {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .tc, .sc {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .algoInfo {
+        padding: 5px;
+    }
+
+    .tc, .sc {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .tc:hover, .sc:hover {
+        width: 100%;
+        box-shadow: none; /* Disable hover effects on mobile */
+    }
+}
